@@ -1,0 +1,11 @@
+C:\Users\steni\ESTUDO-NETCORE-ASPNET\primeiro_proj\ASPNETMVC\ASPNETMVC\bin\Debug\netcoreapp2.0\ASPNETMVC.deps.json
+C:\Users\steni\ESTUDO-NETCORE-ASPNET\primeiro_proj\ASPNETMVC\ASPNETMVC\bin\Debug\netcoreapp2.0\ASPNETMVC.runtimeconfig.json
+C:\Users\steni\ESTUDO-NETCORE-ASPNET\primeiro_proj\ASPNETMVC\ASPNETMVC\bin\Debug\netcoreapp2.0\ASPNETMVC.runtimeconfig.dev.json
+C:\Users\steni\ESTUDO-NETCORE-ASPNET\primeiro_proj\ASPNETMVC\ASPNETMVC\bin\Debug\netcoreapp2.0\ASPNETMVC.dll
+C:\Users\steni\ESTUDO-NETCORE-ASPNET\primeiro_proj\ASPNETMVC\ASPNETMVC\obj\Debug\netcoreapp2.0\ASPNETMVC.csprojAssemblyReference.cache
+C:\Users\steni\ESTUDO-NETCORE-ASPNET\primeiro_proj\ASPNETMVC\ASPNETMVC\obj\Debug\netcoreapp2.0\ASPNETMVC.csproj.CoreCompileInputs.cache
+C:\Users\steni\ESTUDO-NETCORE-ASPNET\primeiro_proj\ASPNETMVC\ASPNETMVC\obj\Debug\netcoreapp2.0\ASPNETMVC.AssemblyInfoInputs.cache
+C:\Users\steni\ESTUDO-NETCORE-ASPNET\primeiro_proj\ASPNETMVC\ASPNETMVC\obj\Debug\netcoreapp2.0\ASPNETMVC.AssemblyInfo.cs
+C:\Users\steni\ESTUDO-NETCORE-ASPNET\primeiro_proj\ASPNETMVC\ASPNETMVC\bin\Debug\netcoreapp2.0\ASPNETMVC.pdb
+C:\Users\steni\ESTUDO-NETCORE-ASPNET\primeiro_proj\ASPNETMVC\ASPNETMVC\obj\Debug\netcoreapp2.0\ASPNETMVC.dll
+C:\Users\steni\ESTUDO-NETCORE-ASPNET\primeiro_proj\ASPNETMVC\ASPNETMVC\obj\Debug\netcoreapp2.0\ASPNETMVC.pdb
