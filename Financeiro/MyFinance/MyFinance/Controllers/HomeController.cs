@@ -12,11 +12,13 @@ namespace MyFinance.Controllers
     {
         public IActionResult Index()
         {
+            ViewData["Nome"] = new HomeModel().LerNomeUsuario();
             return View();
         }
 
         public IActionResult About()
-        {
+        {   
+
             ViewData["Message"] = "Your application description page.";
 
             return View();
