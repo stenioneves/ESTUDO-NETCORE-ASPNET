@@ -1,0 +1,11 @@
+C:\Users\steni\ESTUDO-NETCORE-ASPNET\Financeiro\MyFinance\MyFinance\bin\Debug\netcoreapp2.0\MyFinance.deps.json
+C:\Users\steni\ESTUDO-NETCORE-ASPNET\Financeiro\MyFinance\MyFinance\bin\Debug\netcoreapp2.0\MyFinance.runtimeconfig.json
+C:\Users\steni\ESTUDO-NETCORE-ASPNET\Financeiro\MyFinance\MyFinance\bin\Debug\netcoreapp2.0\MyFinance.runtimeconfig.dev.json
+C:\Users\steni\ESTUDO-NETCORE-ASPNET\Financeiro\MyFinance\MyFinance\bin\Debug\netcoreapp2.0\MyFinance.dll
+C:\Users\steni\ESTUDO-NETCORE-ASPNET\Financeiro\MyFinance\MyFinance\bin\Debug\netcoreapp2.0\MyFinance.pdb
+C:\Users\steni\ESTUDO-NETCORE-ASPNET\Financeiro\MyFinance\MyFinance\obj\Debug\netcoreapp2.0\MyFinance.csprojAssemblyReference.cache
+C:\Users\steni\ESTUDO-NETCORE-ASPNET\Financeiro\MyFinance\MyFinance\obj\Debug\netcoreapp2.0\MyFinance.csproj.CoreCompileInputs.cache
+C:\Users\steni\ESTUDO-NETCORE-ASPNET\Financeiro\MyFinance\MyFinance\obj\Debug\netcoreapp2.0\MyFinance.AssemblyInfoInputs.cache
+C:\Users\steni\ESTUDO-NETCORE-ASPNET\Financeiro\MyFinance\MyFinance\obj\Debug\netcoreapp2.0\MyFinance.AssemblyInfo.cs
+C:\Users\steni\ESTUDO-NETCORE-ASPNET\Financeiro\MyFinance\MyFinance\obj\Debug\netcoreapp2.0\MyFinance.dll
+C:\Users\steni\ESTUDO-NETCORE-ASPNET\Financeiro\MyFinance\MyFinance\obj\Debug\netcoreapp2.0\MyFinance.pdb
