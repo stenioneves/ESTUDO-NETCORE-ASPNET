@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using MyFinance.Models;
 
 namespace MyFinance.Controllers
 {
@@ -11,6 +12,20 @@ namespace MyFinance.Controllers
         public IActionResult Login()
         {
             return View();
+        }
+
+        [HttpPost]
+        public IActionResult ValidarLogin(UsuarioModel usuario)
+        {
+            if (usuario.ValidarLogin())
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                TempData["Erro"] = " Usuário ou senha inválidos!";
+                return RedirectToAction("Login");
+            }
         }
     }
 }

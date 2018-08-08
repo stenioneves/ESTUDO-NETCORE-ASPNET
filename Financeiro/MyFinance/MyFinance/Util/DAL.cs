@@ -23,7 +23,7 @@ namespace MyFinance.Util
         }
 
         // Executa select
-        public DataTable  RetDataTable(string sql)
+        public DataTable RetDataTable(string sql)
         {
             DataTable dataTable = new DataTable();
             MySqlCommand command = new MySqlCommand(sql, connection);
@@ -31,7 +31,7 @@ namespace MyFinance.Util
             da.Fill(dataTable);
             return dataTable;
 
-        
+
         }
 
         // Executa Inserts, Updates e Deletes

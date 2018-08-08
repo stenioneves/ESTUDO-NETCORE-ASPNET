@@ -13,7 +13,7 @@ namespace MyFinance.Models
         {
             DAL objDAL = new DAL();
             DataTable dt = objDAL.RetDataTable("select nome,email from usuario");
-             if(dt != null)
+            if (dt != null)
             {
                 if (dt.Rows.Count > 0)
                 {
