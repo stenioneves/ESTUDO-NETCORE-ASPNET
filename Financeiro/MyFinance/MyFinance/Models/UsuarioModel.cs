@@ -25,6 +25,9 @@ namespace MyFinance.Models
             {
                 if (dataTable.Rows.Count == 1)
                 {
+                    Id = int.Parse(dataTable.Rows[0]["idUsuario"].ToString());
+                    Nome = dataTable.Rows[0]["Nome"].ToString();
+                    DataNascimento = DateTime.Parse(dataTable.Rows[0]["dataNascimento"].ToString());
                     return true;
                 }
             }

@@ -33,3 +33,10 @@
         display: none;
     }
 }
+div #NomeUsuarioAutenticado{
+    color:cornsilk;
+    text-align:right;
+    padding-top:13px;
+    height:50px;
+
+}

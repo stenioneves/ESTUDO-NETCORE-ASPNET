@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MyFinance.Models;
 
@@ -9,8 +10,18 @@ namespace MyFinance.Controllers
 {
     public class UsuarioController : Controller
     {
-        public IActionResult Login()
-        {
+        [HttpGet]
+        public IActionResult Login(int? id)
+        {   
+            if(id != null)
+            {
+                if (id == 0)
+                {
+                    HttpContext.Session.SetString("NomeUsuario",string.Empty);
+                    HttpContext.Session.SetString("IdUsuario", string.Empty);
+                }
+            }
+
             return View();
         }
 
@@ -19,6 +30,9 @@ namespace MyFinance.Controllers
         {
             if (usuario.ValidarLogin())
             {
+
+                HttpContext.Session.SetString("NomeUsuario", usuario.Nome);
+                HttpContext.Session.SetString("IdUsuario", usuario.Id.ToString());
                 return RedirectToAction("Index", "Home");
             }
             else
