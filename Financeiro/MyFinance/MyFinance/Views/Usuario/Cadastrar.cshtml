@@ -1,0 +1,43 @@
+﻿@model UsuarioModel
+
+@{ try
+    {
+        if (TempData["Erro"].ToString() != "")
+        {
+            <div class="alert alert-danger">
+                <strong>Atenção</strong>@TempData["Erro"]
+            </div>
+        }
+    }
+    catch
+    { }
+}
+
+           
+                
+                <h3 class="h3">Cadastrar minha conta</h3>
+<br />
+                
+          
+
+            <form asp-controller="Usuario" asp-action="Cadastrar">
+                <div class="form-group">
+                    <label for="nome">Nome</label>
+                    <input type="text" class="form-control" asp-for="Nome">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" asp-for="Email">
+                </div>
+                <div class="form-group">
+                    <label for="pwd">Senha</label>
+                    <input type="password" class="form-control" asp-for="Senha">
+                </div>
+                <div class="form-group">
+                    <label for="dataNascimento">Data Nascimento</label>
+                    <input type="date" class="form-control" asp-for="DataNascimento">
+                </div>
+                <button type="submit" class="btn btn-block btn-success">Cadastrar</button>
+            </form>
+
+

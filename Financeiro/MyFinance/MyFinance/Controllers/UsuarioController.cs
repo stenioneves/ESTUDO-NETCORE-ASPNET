@@ -41,5 +41,12 @@ namespace MyFinance.Controllers
                 return RedirectToAction("Login");
             }
         }
+
+        [HttpPost]
+        [HttpGet]
+        public IActionResult Cadastrar(UsuarioModel usuario)
+        {
+            return View();
+        }
     }
 }

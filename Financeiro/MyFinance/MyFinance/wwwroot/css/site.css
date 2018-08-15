@@ -33,8 +33,9 @@
         display: none;
     }
 }
+  
 div #NomeUsuarioAutenticado{
-    color:cornsilk;
+    color:wheat;
     text-align:right;
     padding-top:13px;
     height:50px;
