@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -10,9 +11,17 @@ namespace MyFinance.Models
     public class UsuarioModel
     {
         public int Id { get; set; }
+
+        [Required (ErrorMessage ="Informe seu nome!")]
         public string Nome { get; set; }
+
+        [Required(ErrorMessage ="Informe seu Email!")]
         public string Email { get; set; }
+
+        [Required(ErrorMessage ="Informe uma Senha!")]
         public string Senha { get; set; }
+
+        [Required(ErrorMessage ="Informe sua Data de Nascimento")]
         public DateTime DataNascimento { get; set; }
 
         public bool ValidarLogin()

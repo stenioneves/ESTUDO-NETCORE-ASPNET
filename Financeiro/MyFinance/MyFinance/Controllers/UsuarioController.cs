@@ -43,10 +43,20 @@ namespace MyFinance.Controllers
         }
 
         [HttpPost]
-        [HttpGet]
         public IActionResult Cadastrar(UsuarioModel usuario)
+        {
+            if (ModelState.IsValid)
+            {
+                //
+            }
+            return View();
+        }
+
+        [HttpGet]
+        public IActionResult Cadastrar()
         {
             return View();
         }
+
     }
 }
