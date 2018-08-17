@@ -33,7 +33,7 @@ namespace MyFinance.Controllers
 
                 HttpContext.Session.SetString("NomeUsuario", usuario.Nome);
                 HttpContext.Session.SetString("IdUsuario", usuario.Id.ToString());
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Menu", "Home");
             }
             else
             {
@@ -47,13 +47,19 @@ namespace MyFinance.Controllers
         {
             if (ModelState.IsValid)
             {
-                //
+                usuario.Cadastrar();
+                return RedirectToAction("Sucesso");
             }
             return View();
         }
 
         [HttpGet]
         public IActionResult Cadastrar()
+        {
+            return View();
+        }
+
+        public IActionResult Sucesso()
         {
             return View();
         }

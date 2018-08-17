@@ -41,3 +41,9 @@ div #NomeUsuarioAutenticado{
     height:50px;
 
 }
+/*Remove a decoração da âncora na tela menu*/
+a:hover, a div figure figcaption{
+   text-decoration:none;
+   color:black;
+   
+}
