@@ -5,16 +5,19 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
+using System.ComponentModel.DataAnnotations;
 
 namespace MyFinance.Models
 {
     public class ContaModel
     {
         public int Id { get; set; }
+        [Required (ErrorMessage ="Favor informe o nome da Conta!")]
         public string Nome { get; set; }
+        [Required(ErrorMessage ="Informe o Saldo!")]
         public double Saldo { get; set; }
         public int Id_usuario { get; set; }
-        IHttpContextAccessor HttpContextAccessor;
+        public IHttpContextAccessor HttpContextAccessor { get; set; }
         public ContaModel()
         {
 
@@ -48,6 +51,19 @@ namespace MyFinance.Models
             return lista;
          
 
+        }
+
+        internal void Excluir(int id)
+        {
+            new DAL().ExecutarComandoSQL($"DELETE FROM conta WHERE idconta={id}");
+        }
+
+        public void Insert()
+        {
+            string id_usuario_logado = HttpContextAccessor.HttpContext.Session.GetString("IdUsuario");
+            string sql = $"INSERT INTO conta(nomeConta,saldo,Usuario_idUsuario) VALUES('{Nome}',{Saldo},{id_usuario_logado})";
+            DAL dal = new DAL();
+            dal.ExecutarComandoSQL(sql);
         }
 
     }
