@@ -3,5 +3,38 @@
     ViewData["Title"] = "Index";
 }
 
-<h2>Index</h2>
+<h2>Plano de Contas</h2>
+
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>#</th>
+            <th>ID</th>
+            <th>Descrição</th>
+            <th>Tipo</th>
+        </tr>
+        </thead>
+    @{ 
+        foreach (var item in (List<PlanoContaModel>)ViewBag.ListarPlanocontas)
+        {
+            <tbody>
+                <tr>
+                    <td><button class="btn btn-warning" onclick="EditarPlanoConta(@item.Id.ToString())">Editar</button></td>
+                    <td><button class="btn btn-danger" onclick="ExcluirPlanoConta(@item.Id.ToString())">Excluir</button></td>
+                    <td>@item.Id.ToString()</td>
+                    <td>@item.Descricao.ToString()</td>
+                    <td>@item.Tipo.ToString().Replace("D", "Despesa").Replace("R", "Receita")</td>
+                </tr>
+
+
+            </tbody>
+
+        }
+    }
+   
+
+
+</table>
+<button class="btn btn-block btn-success" onclick="NovoPlanoConta()">Novo Plano Contas</button>
 
