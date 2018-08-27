@@ -3,5 +3,54 @@
     ViewData["Title"] = "Index";
 }
 
-<h2>Index</h2>
+<h2>Minhas Transações</h2>
 
+<table class="table table-bordered table-hover" >
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>#</th>
+            <th>ID</th>
+            <th>Tipo</th>
+            <th>Historico</th>
+            <th>Valor</th>
+            <th>Data</th>
+            <th>Conta</th>
+            <th>Plano de Contas</th>
+          </tr>
+
+    </thead>
+    @{ 
+        foreach (var item in (List<TransacaoModel>)ViewBag.ListarTransacao)
+        {
+            <tbody>
+                <tr>
+                    <td><button class="btn btn-warning" onclick="EditarTransacao(@item.Id.ToString())">Editar</button></td>
+                    <td><button class="btn btn-danger" onclick="ExcluirTransacao(@item.Id.ToString())">Excluir</button></td>
+                    <td>@item.Id.ToString()</td>
+                    <td>@item.Tipo.ToString().Replace("D", "Despesa").Replace("R", "Receita")</td>
+                    <td>@item.Descricao.ToString()</td>
+                    <td>@item.Valor.ToString()</td>
+                    <td>@item.Data.ToString()</td>
+                    <td>@item.Nomeconta.ToString()</td>
+                    <td>@item.DescricaoPlanoConta.ToString()</td>
+
+
+
+                </tr>
+
+
+            </tbody>
+
+        }
+
+        
+
+
+    }
+
+
+
+</table>
+
+<button class="btn btn-block btn-primary" onclick="NovaTransacao()">Nova Transação</button>

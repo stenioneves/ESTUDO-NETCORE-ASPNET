@@ -32,3 +32,17 @@ const ExcluirPlanoConta = (id) => {
 const EditarPlanoConta = (id) => {
     window.location.href =`../PlanoConta/NovoPlanoConta/${id}`
 }
+
+/* Tela Transação*/
+
+const NovaTransacao = () => {
+    window.location.href="../Transacao/NovaTransacao"
+}
+
+const EditarTransacao = (id) => {
+    window.location.href = `../Transacao/NovaTransacao/${id}`
+}
+const ExcluirTransacao = (id) => {
+    const conf = confirm("Tem certeza que deseja excluir esse essa Transação");
+    window.location.href = `../Transacao/ExcluirTransacao/${id}`
+}
