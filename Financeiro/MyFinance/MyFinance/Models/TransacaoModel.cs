@@ -142,7 +142,34 @@ namespace MyFinance.Models
 
     }
 
+    public class Dashboard
+    {
 
+        public double Total { get; set; }
+        public string PlanoContas { get; set; }
+
+        public List<Dashboard>RetornarDadosGraficoPizza()
+        {
+            List<Dashboard> lista = new List<Dashboard>();
+            Dashboard item;
+            string sql = "select sum(t.valor)as total, p.descricao from  transacao as t inner join plano_contas as p on t.Plano_Contas_idPlano_Contas=p.idPlano_Contas"+ 
+                "where t.tipo = 'D' group by p.descricao";
+
+            DAL dAL = new DAL();
+            DataTable dt = new DataTable();
+            dt = dAL.RetDataTable(sql);
+
+            for (int  i = 0;  i < dt.Rows.Count;  i++)
+            {
+                item = new Dashboard();
+                item.Total = double.Parse(dt.Rows[i]["total"].ToString());
+                item.PlanoContas = dt.Rows[i]["descricao"].ToString();
+                lista.Add(item);
+            }
+
+            return lista;
+        }
+    }
 
 
 
