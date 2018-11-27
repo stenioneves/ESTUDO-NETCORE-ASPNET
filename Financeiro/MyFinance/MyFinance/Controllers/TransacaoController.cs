@@ -25,13 +25,36 @@ namespace MyFinance.Controllers
             return View();
         }
 
-        public IActionResult Extrato()
+        [HttpGet]
+        [HttpPost]
+        public IActionResult Extrato(TransacaoModel formulario)
         {
+            formulario.HttpContextAccessor = HttpContextAccessor;
+            ViewBag.ListarTransacao = formulario.ListarTransacao();
+            ViewBag.ListarContas = new ContaModel(HttpContextAccessor).ListarConta();
             return View();
         }
 
         public IActionResult Dashboard()
         {
+            List<Dashboard> lista = new Dashboard().RetornarDadosGraficoPizza();
+
+            string valores = "";
+            string labels = "";
+            string cores = "";
+            var random = new Random();
+            for (int i = 0; i < lista.Count; i++)
+            {
+                valores += lista[i].Total.ToString() + ",";
+                labels += "'"+lista[i].PlanoContas.ToString() + "',";
+                cores += "'" + String.Format("#{0:X6}", random.Next(0x1000000))+ "',";
+            }
+
+
+
+            ViewBag.Valores =valores ;
+            ViewBag.labels = labels;
+            ViewBag.cores = cores;
             return View();
         }
         [HttpPost]
