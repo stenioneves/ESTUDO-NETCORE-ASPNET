@@ -14,6 +14,7 @@ namespace MyFinance.Models
         public int Id { get; set; }
         [Required (ErrorMessage ="Favor informe a Data!")]
         public string Data { get; set; }
+        public string DataFinal { get; set; } //Usado para gerar relatório
         public string Tipo { get; set; }
         [Required (ErrorMessage ="Informe o Valor!")]
         public double Valor { get; set; }
@@ -35,13 +36,31 @@ namespace MyFinance.Models
 
         public List<TransacaoModel> ListarTransacao()
         {
+           
             List<TransacaoModel> lista = new List<TransacaoModel>();
             TransacaoModel item;
+            //Usado no filtro
+            string filtro = "";
+            if ((Data != null) && (DataFinal != null))
+            {
+                filtro += $" and t.data >='{DateTime.Parse(Data).ToString("yyyy/MM/dd")}' and t.data <= '{DateTime.Parse(DataFinal).ToString("yyyy/MM/dd")}'";
+            }
+            if (Tipo != null)
+            {
+                if(Tipo != "A")
+                {
+                    filtro += $" and t.tipo='{Tipo}'";
+                }
+            }
+            if (IdConta != 0)
+            {
+                filtro += $" and t.Conta_idconta='{IdConta}'";
+            }
             string id_usuario_logado = HttpContextAccessor.HttpContext.Session.GetString("IdUsuario");
             string sql = "select t.idTransacao,t.data,t.tipo,t.valor,t.descricao as historico,t.Conta_idconta,c.nomeConta as conta,t.Plano_Contas_idPlano_Contas," +
                      " p.descricao as plano_conta from transacao AS t"+
                      $" INNER JOIN conta c ON t.Conta_idconta = c.idconta INNER JOIN plano_contas as p ON t.Plano_Contas_idPlano_Contas = p.idPlano_Contas Where t.usuario_id = {id_usuario_logado}" +
-                    " ORDER BY t.data desc limit 10"; 
+                    $"{filtro} ORDER BY t.data desc limit 10"; 
             DAL dal = new DAL();
             DataTable dt = dal.RetDataTable(sql);
             for (int i = 0; i <dt.Rows.Count ; i++)
