@@ -152,8 +152,8 @@ namespace MyFinance.Models
         {
             List<Dashboard> lista = new List<Dashboard>();
             Dashboard item;
-            string sql = "select sum(t.valor)as total, p.descricao from  transacao as t inner join plano_contas as p on t.Plano_Contas_idPlano_Contas=p.idPlano_Contas"+ 
-                "where t.tipo = 'D' group by p.descricao";
+            string sql = " select sum(t.valor)as total, p.descricao from  transacao as t inner join plano_contas as p on t.Plano_Contas_idPlano_Contas=p.idPlano_Contas"+ 
+                " where t.tipo ='D' group by p.descricao";
 
             DAL dAL = new DAL();
             DataTable dt = new DataTable();
