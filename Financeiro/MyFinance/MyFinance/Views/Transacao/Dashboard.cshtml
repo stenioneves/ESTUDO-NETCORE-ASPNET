@@ -1,8 +1,9 @@
-﻿<h3> Meu Dashboard</h3>
+﻿@model Dashboard
+
+<h3> Meu Dashboard</h3>
 <br />
 <br />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.bundle.min.js"></script>
-
 
 
     <div id="canvas-holder" style="width:60%">
@@ -42,3 +43,34 @@
 
 
     </script>
+    
+<div class="container">
+        <form asp-controller="Transacao" asp-action="Dashboard">
+            <div class="form-group">
+                <label> Data Transação (Inicio):</label>
+                <input type="date" asp-for="Data" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label>Data Transação(Final):</label>
+                <input type="date" asp-for="DataFinal" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label>Conta:</label>
+                <select asp-for="IdConta" class="form-control">
+                    @{
+                        foreach (var item in (List<ContaModel>)ViewBag.ListarContas)
+                        {
+                            <option value="@item.Id.ToString()">@item.Nome.ToString()</option>
+                        }
+                    }
+
+
+                </select>
+            </div>
+            <button type="submit" class="btn btn-block btn-success">Pesquisar</button>
+
+        </form>
+
+
+
+    </div>
