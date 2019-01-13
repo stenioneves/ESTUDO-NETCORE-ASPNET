@@ -12,6 +12,8 @@ namespace MyFinance.Controllers
     {
         public IActionResult Index()
         {
+
+        
             ViewData["Nome"] = new HomeModel().LerNomeUsuario();
             return View();
         }
@@ -38,7 +40,13 @@ namespace MyFinance.Controllers
 
         public IActionResult Menu()
         {
-            return View();
+            if (HttpContext.Session.IsAvailable)
+            {
+                return View();
+            }
+            else
+                return RedirectToAction("Login", "Usuario");
+            
         }
 
         public IActionResult Ajuda()
