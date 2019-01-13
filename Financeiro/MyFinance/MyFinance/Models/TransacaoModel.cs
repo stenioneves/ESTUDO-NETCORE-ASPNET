@@ -151,12 +151,26 @@ namespace MyFinance.Models
         public string Data { get; set; }
         public string DataFinal { get; set; }
 
-    public List<Dashboard>RetornarDadosGraficoPizza()
+        
+
+        public List<Dashboard>RetornarDadosGraficoPizza()
         {
             List<Dashboard> lista = new List<Dashboard>();
             Dashboard item;
-            string sql = " select sum(t.valor)as total, p.descricao from  transacao as t inner join plano_contas as p on t.Plano_Contas_idPlano_Contas=p.idPlano_Contas"+ 
-                " where t.tipo ='D' group by p.descricao";
+
+            string filtro = "";
+            if ((Data != null) && (DataFinal != null))
+            {
+                filtro += $" and t.data >='{DateTime.Parse(Data).ToString("yyyy/MM/dd")}' and t.data <= '{DateTime.Parse(DataFinal).ToString("yyyy/MM/dd")}'";
+            }
+            
+            if (IdConta != 0)
+            {
+                filtro += $" and t.Conta_idconta='{IdConta}'";
+            }
+            string id_usuario_logado = HttpContextAccessor.HttpContext.Session.GetString("IdUsuario");
+            string sql = " select sum(t.valor)as total, p.descricao from  transacao as t inner join plano_contas as p on t.Plano_Contas_idPlano_Contas=p.idPlano_Contas"+
+                $" where t.tipo ='D' and t.usuario_id={id_usuario_logado} {filtro} group by p.descricao";
 
             DAL dAL = new DAL();
             DataTable dt = new DataTable();
