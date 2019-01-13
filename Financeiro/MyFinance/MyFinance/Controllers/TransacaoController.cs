@@ -42,7 +42,7 @@ namespace MyFinance.Controllers
             filtro.HttpContextAccessor = HttpContextAccessor;
             ViewBag.ListarContas = new ContaModel(HttpContextAccessor).ListarConta();
 
-            List<Dashboard> lista = new Dashboard().RetornarDadosGraficoPizza();
+            List<Dashboard> lista = filtro.RetornarDadosGraficoPizza();
 
             string valores = "";
             string labels = "";
