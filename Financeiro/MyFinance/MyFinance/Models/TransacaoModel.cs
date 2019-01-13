@@ -144,11 +144,14 @@ namespace MyFinance.Models
 
     public class Dashboard
     {
-
+        public IHttpContextAccessor HttpContextAccessor { get; set; }
         public double Total { get; set; }
         public string PlanoContas { get; set; }
+        public int IdConta { get; set; }
+        public string Data { get; set; }
+        public string DataFinal { get; set; }
 
-        public List<Dashboard>RetornarDadosGraficoPizza()
+    public List<Dashboard>RetornarDadosGraficoPizza()
         {
             List<Dashboard> lista = new List<Dashboard>();
             Dashboard item;
