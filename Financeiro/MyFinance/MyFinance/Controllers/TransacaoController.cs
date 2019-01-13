@@ -35,8 +35,13 @@ namespace MyFinance.Controllers
             return View();
         }
 
-        public IActionResult Dashboard()
+        [HttpGet]
+        [HttpPost]
+        public IActionResult Dashboard(Dashboard filtro)
         {
+            filtro.HttpContextAccessor = HttpContextAccessor;
+            ViewBag.ListarContas = new ContaModel(HttpContextAccessor).ListarConta();
+
             List<Dashboard> lista = new Dashboard().RetornarDadosGraficoPizza();
 
             string valores = "";
