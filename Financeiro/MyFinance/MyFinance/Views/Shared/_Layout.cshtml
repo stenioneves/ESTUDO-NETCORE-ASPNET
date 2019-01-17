@@ -81,7 +81,9 @@
     const divNome = document.getElementById("NomeUsuarioAutenticado")
         if (nome != "") {
             divNome.innerHTML = `Olá  ${nome} <a href="../Usuario/Login/0">(Sair)</a>`
-        } 
+        } else {
+            window.location.href `../Usuario/Login`
+        }
 
 
 }
