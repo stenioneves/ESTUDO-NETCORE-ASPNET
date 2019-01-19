@@ -1,7 +1,7 @@
 ﻿@model UsuarioModel
 
 @{ 
-                Layout ="../Shared/_LayoutLogin.cshtml";
+    Layout = "../Shared/_LayoutLogin.cshtml";
     }
 <div class="container" id="form">
 
@@ -14,9 +14,20 @@
                     <strong>Atenção</strong>@TempData["Erro"]
                 </div>
             }
+
         }
         catch
         { }
+        try
+        {
+            if (TempData["Msg"].ToString() != "")
+            {
+                <div class="alert alert-success">
+                    <strong>Atenção</strong>@TempData["Msg"]
+                </div>
+            }
+        }
+        catch { }
     }
     <form asp-controller="Usuario" asp-action="ValidarLogin">
         <div class="form-group">
@@ -30,7 +41,9 @@
         <div class="checkbox">
             <label><input type="checkbox"> Lembrar-me</label>
         </div>
+        @{ var sair = ViewBag.sair;
+        }
         <button type="submit" class="btn btn-default">Acessar</button>
-        <button type="button" class="btn btn-success" onclick="formCad()">Cadastrar</button>
+        <button type="button" class="btn btn-success" onclick="formCad(@sair)">Cadastrar</button>
     </form>
 </div>
