@@ -46,3 +46,10 @@ const ExcluirTransacao = (id) => {
     const conf = confirm("Tem certeza que deseja excluir esse essa Transação");
     window.location.href = `../Transacao/ExcluirTransacao/${id}`
 }
+const formCad = () => {
+    window.location.href =`../Usuario/Cadastrar`
+}
+
+const formLogin = () => {
+    window.location.href=`../Usuario/Login`
+}
