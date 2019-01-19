@@ -2,30 +2,35 @@
 
 @{ 
                 Layout ="../Shared/_LayoutLogin.cshtml";
-
-                try {
-                    if (TempData["Erro"].ToString() != "")
-                    {
-    <div class="alert alert-danger">
-        <strong>Atenção</strong>@TempData["Erro"]
-    </div>
-        }
-    } catch
-    { }
     }
-    <div class="container" id="form">
-        <form asp-controller="Usuario" asp-action="ValidarLogin">
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" class="form-control" asp-for="Email">
-            </div>
-            <div class="form-group">
-                <label for="pwd">Senha</label>
-                <input type="password" class="form-control" asp-for="Senha">
-            </div>
-            <div class="checkbox">
-                <label><input type="checkbox"> Lembrar-me</label>
-            </div>
-            <button type="submit" class="btn btn-default">Acessar</button>
-        </form>
-    </div>
+<div class="container" id="form">
+
+    @{
+        try
+        {
+            if (TempData["Erro"].ToString() != "")
+            {
+                <div class="alert alert-danger">
+                    <strong>Atenção</strong>@TempData["Erro"]
+                </div>
+            }
+        }
+        catch
+        { }
+    }
+    <form asp-controller="Usuario" asp-action="ValidarLogin">
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" class="form-control" asp-for="Email">
+        </div>
+        <div class="form-group">
+            <label for="pwd">Senha</label>
+            <input type="password" class="form-control" asp-for="Senha">
+        </div>
+        <div class="checkbox">
+            <label><input type="checkbox"> Lembrar-me</label>
+        </div>
+        <button type="submit" class="btn btn-default">Acessar</button>
+        <button type="button" class="btn btn-success" onclick="formCad()">Cadastrar</button>
+    </form>
+</div>
