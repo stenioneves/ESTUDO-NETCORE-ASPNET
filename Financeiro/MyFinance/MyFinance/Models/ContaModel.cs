@@ -22,6 +22,12 @@ namespace MyFinance.Models
         {
 
         }
+        //Pegar o usuario logado<redução de repetição de código>
+         public string IdUsuarioLogado()
+        {
+            return HttpContextAccessor.HttpContext.Session.GetString("IdUsuario");
+
+        }
         // Recebe o contexto para acesso às variáveis de sessão
         public ContaModel(IHttpContextAccessor httpContextAccessor)
         {
@@ -32,8 +38,8 @@ namespace MyFinance.Models
             List<ContaModel> lista = new List<ContaModel>();
             ContaModel item;
 
-            string id_usuario_logado = HttpContextAccessor.HttpContext.Session.GetString("IdUsuario");
-            string sql = $"SELECT idconta,nomeConta,saldo,Usuario_idUsuario FROM conta WHERE Usuario_idUsuario={id_usuario_logado} ";
+            
+            string sql = $"SELECT idconta,nomeConta,saldo,Usuario_idUsuario FROM conta WHERE Usuario_idUsuario={IdUsuarioLogado()} ";
             DAL dal = new DAL();
             DataTable dt = dal.RetDataTable(sql);
 
@@ -60,8 +66,7 @@ namespace MyFinance.Models
 
         public void Insert()
         {
-            string id_usuario_logado = HttpContextAccessor.HttpContext.Session.GetString("IdUsuario");
-            string sql = $"INSERT INTO conta(nomeConta,saldo,Usuario_idUsuario) VALUES('{Nome}',{Saldo},{id_usuario_logado})";
+            string sql = $"INSERT INTO conta(nomeConta,saldo,Usuario_idUsuario) VALUES('{Nome}',{Saldo},{IdUsuarioLogado()})";
             DAL dal = new DAL();
             dal.ExecutarComandoSQL(sql);
         }

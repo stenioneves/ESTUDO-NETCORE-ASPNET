@@ -29,6 +29,10 @@ namespace MyFinance.Models
 
         public TransacaoModel() { }
 
+        public string IdUsuarioLogado()
+        {
+            return HttpContextAccessor.HttpContext.Session.GetString("IdUsuario");
+        }
         public TransacaoModel(IHttpContextAccessor httpContextAccessor)
         {
             HttpContextAccessor = httpContextAccessor;
@@ -56,10 +60,10 @@ namespace MyFinance.Models
             {
                 filtro += $" and t.Conta_idconta='{IdConta}'";
             }
-            string id_usuario_logado = HttpContextAccessor.HttpContext.Session.GetString("IdUsuario");
+           
             string sql = "select t.idTransacao,t.data,t.tipo,t.valor,t.descricao as historico,t.Conta_idconta,c.nomeConta as conta,t.Plano_Contas_idPlano_Contas," +
                      " p.descricao as plano_conta from transacao AS t"+
-                     $" INNER JOIN conta c ON t.Conta_idconta = c.idconta INNER JOIN plano_contas as p ON t.Plano_Contas_idPlano_Contas = p.idPlano_Contas Where t.usuario_id = {id_usuario_logado}" +
+                     $" INNER JOIN conta c ON t.Conta_idconta = c.idconta INNER JOIN plano_contas as p ON t.Plano_Contas_idPlano_Contas = p.idPlano_Contas Where t.usuario_id = {IdUsuarioLogado()}" +
                     $"{filtro} ORDER BY t.data desc limit 10"; 
             DAL dal = new DAL();
             DataTable dt = dal.RetDataTable(sql);
@@ -85,18 +89,18 @@ namespace MyFinance.Models
 
         public void insert()
         {
-            string id_usuario_logado = HttpContextAccessor.HttpContext.Session.GetString("IdUsuario");
+            
             string sql = "";
             if (Id == 0)
             {
-                sql = $"INSERT INTO transacao (data,tipo,valor,descricao,Conta_idconta, Plano_Contas_idPlano_Contas,usuario_id) VALUES('{DateTime.Parse(Data).ToString("yyyy/MM/dd")}','{Tipo}','{Valor}','{Descricao}','{IdConta}','{IdPlanoConta}','{id_usuario_logado}')";
+                sql = $"INSERT INTO transacao (data,tipo,valor,descricao,Conta_idconta, Plano_Contas_idPlano_Contas,usuario_id) VALUES('{DateTime.Parse(Data).ToString("yyyy/MM/dd")}','{Tipo}','{Valor}','{Descricao}','{IdConta}','{IdPlanoConta}','{IdUsuarioLogado()}')";
             }
             else
             {
                 sql = $"UPDATE transacao SET data='{DateTime.Parse(Data).ToString("yyyy/MM/dd")}',"+
                     $" descricao='{Descricao}',tipo='{Tipo}', valor ='{Valor}'," +
                     $"Conta_idconta='{IdConta}', Plano_Contas_idPlano_Contas='{IdPlanoConta}' " +
-                    $"WHERE usuario_id='{id_usuario_logado}' AND idTransacao='{Id}'";
+                    $"WHERE usuario_id='{IdUsuarioLogado()}' AND idTransacao='{Id}'";
 
             }
             DAL dal = new DAL();
@@ -106,10 +110,10 @@ namespace MyFinance.Models
         {
             
             TransacaoModel item = new TransacaoModel();
-            string id_usuario_logado = HttpContextAccessor.HttpContext.Session.GetString("IdUsuario");
+            
             string sql = "select t.idTransacao,t.data,t.tipo,t.valor,t.descricao as historico,t.Conta_idconta,c.nomeConta as conta,t.Plano_Contas_idPlano_Contas," +
                      " p.descricao as plano_conta from transacao AS t" +
-                     $" INNER JOIN conta c ON t.Conta_idconta = c.idconta INNER JOIN plano_contas as p ON t.Plano_Contas_idPlano_Contas = p.idPlano_Contas Where t.usuario_id = {id_usuario_logado}" +
+                     $" INNER JOIN conta c ON t.Conta_idconta = c.idconta INNER JOIN plano_contas as p ON t.Plano_Contas_idPlano_Contas = p.idPlano_Contas Where t.usuario_id = {IdUsuarioLogado()}" +
                     $" AND t.idTransacao={id}";
             DAL dal = new DAL();
             DataTable dt = dal.RetDataTable(sql);
@@ -151,7 +155,10 @@ namespace MyFinance.Models
         public string Data { get; set; }
         public string DataFinal { get; set; }
 
-        
+        public string IdUsuarioLogado()
+        {
+            return HttpContextAccessor.HttpContext.Session.GetString("IdUsuario");
+            }
 
         public List<Dashboard>RetornarDadosGraficoPizza()
         {
@@ -168,9 +175,9 @@ namespace MyFinance.Models
             {
                 filtro += $" and t.Conta_idconta='{IdConta}'";
             }
-            string id_usuario_logado = HttpContextAccessor.HttpContext.Session.GetString("IdUsuario");
+            
             string sql = " select sum(t.valor)as total, p.descricao from  transacao as t inner join plano_contas as p on t.Plano_Contas_idPlano_Contas=p.idPlano_Contas"+
-                $" where t.tipo ='D' and t.usuario_id={id_usuario_logado} {filtro} group by p.descricao";
+                $" where t.tipo ='D' and t.usuario_id={IdUsuarioLogado()} {filtro} group by p.descricao";
 
             DAL dAL = new DAL();
             DataTable dt = new DataTable();

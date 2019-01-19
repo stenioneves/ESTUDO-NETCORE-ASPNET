@@ -24,6 +24,10 @@ namespace MyFinance.Models
         {
 
         }
+        public string IdUsuarioLogado()
+        {
+            return HttpContextAccessor.HttpContext.Session.GetString("IdUsuario");
+        }
 
         public PlanoContaModel(IHttpContextAccessor httpContextAccessor)
         {
@@ -36,8 +40,8 @@ namespace MyFinance.Models
 
             List<PlanoContaModel> listas = new List<PlanoContaModel>();
             PlanoContaModel item;
-            string id_usuario_logado = HttpContextAccessor.HttpContext.Session.GetString("IdUsuario");
-            string sql = $"SELECT idPlano_contas,descricao,tipo,usuario_id FROM plano_contas WHERE usuario_id={id_usuario_logado}";
+            
+            string sql = $"SELECT idPlano_contas,descricao,tipo,usuario_id FROM plano_contas WHERE usuario_id={IdUsuarioLogado()}";
             DAL dal = new DAL();
             DataTable dt =dal.RetDataTable(sql);
 
@@ -54,14 +58,14 @@ namespace MyFinance.Models
         }
         public void Insert()
         {
-            string id_usuario_logado = HttpContextAccessor.HttpContext.Session.GetString("IdUsuario");
+            
             string sql = "";
             if (Id == 0) { 
-            sql = $"INSERT INTO plano_contas(descricao,tipo,usuario_id) VALUES('{Descricao}','{Tipo}','{id_usuario_logado}')";
+            sql = $"INSERT INTO plano_contas(descricao,tipo,usuario_id) VALUES('{Descricao}','{Tipo}','{IdUsuarioLogado()}')";
             }
             else
             {
-                sql = $"UPDATE plano_contas SET descricao='{Descricao}',tipo='{Tipo}' WHERE usuario_id='{id_usuario_logado}' AND idPlano_Contas='{Id}'";
+                sql = $"UPDATE plano_contas SET descricao='{Descricao}',tipo='{Tipo}' WHERE usuario_id='{IdUsuarioLogado()}' AND idPlano_Contas='{Id}'";
 
             }
         DAL dal = new DAL();
@@ -77,8 +81,8 @@ namespace MyFinance.Models
         public PlanoContaModel CarregarDados(int? id)
         {
             PlanoContaModel registro = new PlanoContaModel();
-            string id_usuario_logado = HttpContextAccessor.HttpContext.Session.GetString("IdUsuario");
-            string sql = $"SELECT idPlano_contas,descricao,tipo,usuario_id FROM plano_contas WHERE usuario_id={id_usuario_logado} AND idPlano_contas ={id}";
+            
+            string sql = $"SELECT idPlano_contas,descricao,tipo,usuario_id FROM plano_contas WHERE usuario_id={IdUsuarioLogado()} AND idPlano_contas ={id}";
             DAL dados = new DAL();
             DataTable dt = dados.RetDataTable(sql);
             registro.Id = int.Parse(dt.Rows[0]["idPlano_contas"].ToString());
