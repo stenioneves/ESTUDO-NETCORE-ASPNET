@@ -15,13 +15,15 @@ namespace MyFinance.Controllers
         {   
             if(id != null)
             {
+                ViewBag.sair = 1;
                 if (id == 0)
                 {
                     HttpContext.Session.SetString("NomeUsuario",string.Empty);
                     HttpContext.Session.SetString("IdUsuario", string.Empty);
+                    ViewBag.sair = 0;
                 }
             }
-
+             
             return View();
         }
 
@@ -48,7 +50,9 @@ namespace MyFinance.Controllers
             if (ModelState.IsValid)
             {
                 usuario.Cadastrar();
-                return RedirectToAction("Sucesso");
+                TempData["Msg"] = " Cadastro realizado com sucesso!" +
+                    "Agora acesse o sistema com os dados informados ;)";
+                return RedirectToAction("Login");
             }
             return View();
         }
