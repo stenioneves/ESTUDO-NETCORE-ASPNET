@@ -61,11 +61,14 @@ div #form {
     
 }
 .espacamento{
-   padding-top:200px;
+   padding-top:60px;
 }
 div #cadform {
     background-color: rgba(239,239,239,0.95);
     border-radius: 10px;
     padding: 20px;
     width: 500px;
+}
+div #logo{
+    text-align:center
 }
