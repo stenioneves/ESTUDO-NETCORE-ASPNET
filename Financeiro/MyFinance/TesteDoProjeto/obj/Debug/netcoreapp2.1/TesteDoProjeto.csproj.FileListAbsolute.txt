@@ -1,0 +1,17 @@
+C:\Users\steni\ESTUDO-NETCORE-ASPNET\Financeiro\MyFinance\TesteDoProjeto\bin\Debug\netcoreapp2.1\xunit.runner.visualstudio.dotnetcore.testadapter.dll
+C:\Users\steni\ESTUDO-NETCORE-ASPNET\Financeiro\MyFinance\TesteDoProjeto\bin\Debug\netcoreapp2.1\xunit.runner.reporters.netcoreapp10.dll
+C:\Users\steni\ESTUDO-NETCORE-ASPNET\Financeiro\MyFinance\TesteDoProjeto\bin\Debug\netcoreapp2.1\xunit.runner.utility.netcoreapp10.dll
+C:\Users\steni\ESTUDO-NETCORE-ASPNET\Financeiro\MyFinance\TesteDoProjeto\bin\Debug\netcoreapp2.1\TesteDoProjeto.deps.json
+C:\Users\steni\ESTUDO-NETCORE-ASPNET\Financeiro\MyFinance\TesteDoProjeto\bin\Debug\netcoreapp2.1\TesteDoProjeto.runtimeconfig.json
+C:\Users\steni\ESTUDO-NETCORE-ASPNET\Financeiro\MyFinance\TesteDoProjeto\bin\Debug\netcoreapp2.1\TesteDoProjeto.runtimeconfig.dev.json
+C:\Users\steni\ESTUDO-NETCORE-ASPNET\Financeiro\MyFinance\TesteDoProjeto\bin\Debug\netcoreapp2.1\TesteDoProjeto.dll
+C:\Users\steni\ESTUDO-NETCORE-ASPNET\Financeiro\MyFinance\TesteDoProjeto\bin\Debug\netcoreapp2.1\TesteDoProjeto.pdb
+C:\Users\steni\ESTUDO-NETCORE-ASPNET\Financeiro\MyFinance\TesteDoProjeto\bin\Debug\netcoreapp2.1\MyFinance.dll
+C:\Users\steni\ESTUDO-NETCORE-ASPNET\Financeiro\MyFinance\TesteDoProjeto\bin\Debug\netcoreapp2.1\MyFinance.pdb
+C:\Users\steni\ESTUDO-NETCORE-ASPNET\Financeiro\MyFinance\TesteDoProjeto\obj\Debug\netcoreapp2.1\TesteDoProjeto.csprojAssemblyReference.cache
+C:\Users\steni\ESTUDO-NETCORE-ASPNET\Financeiro\MyFinance\TesteDoProjeto\obj\Debug\netcoreapp2.1\TesteDoProjeto.csproj.CoreCompileInputs.cache
+C:\Users\steni\ESTUDO-NETCORE-ASPNET\Financeiro\MyFinance\TesteDoProjeto\obj\Debug\netcoreapp2.1\TesteDoProjeto.AssemblyInfoInputs.cache
+C:\Users\steni\ESTUDO-NETCORE-ASPNET\Financeiro\MyFinance\TesteDoProjeto\obj\Debug\netcoreapp2.1\TesteDoProjeto.AssemblyInfo.cs
+C:\Users\steni\ESTUDO-NETCORE-ASPNET\Financeiro\MyFinance\TesteDoProjeto\obj\Debug\netcoreapp2.1\TesteDoProjeto.csproj.CopyComplete
+C:\Users\steni\ESTUDO-NETCORE-ASPNET\Financeiro\MyFinance\TesteDoProjeto\obj\Debug\netcoreapp2.1\TesteDoProjeto.dll
+C:\Users\steni\ESTUDO-NETCORE-ASPNET\Financeiro\MyFinance\TesteDoProjeto\obj\Debug\netcoreapp2.1\TesteDoProjeto.pdb
