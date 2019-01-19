@@ -1,6 +1,9 @@
 ﻿@model UsuarioModel
 
-@{ try
+@{ 
+    Layout = "../Shared/_LayoutLogin.cshtml";
+
+    try
     {
         if (TempData["Erro"].ToString() != "")
         {
@@ -15,33 +18,35 @@
 
            
                 
-                <h3 class="h3">Cadastrar minha conta</h3>
-<br />
                 
-          
+                
+            <div class="container" id="cadform">
 
-            <form asp-controller="Usuario" asp-action="Cadastrar">
-                <div class="form-group">
-                    <label for="nome">Nome</label>
-                    <input type="text" class="form-control" asp-for="Nome">
-                    <span asp-validation-for="Nome" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" class="form-control" asp-for="Email">
-                    <span asp-validation-for="Email" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label for="pwd">Senha</label>
-                    <input type="password" class="form-control" asp-for="Senha">
-                    <span asp-validation-for="Senha" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label for="dataNascimento">Data Nascimento</label>
-                    <input type="date" class="form-control" asp-for="DataNascimento">
-                    <span asp-validation-for="DataNascimento" class="text-danger"></span>
-                </div>
-                <button type="submit" class="btn btn-block btn-success">Cadastrar</button>
-            </form>
+                <h3 class="h3 text-center">Cadastrar minha conta</h3>
+                <br />
+                <form asp-controller="Usuario" asp-action="Cadastrar">
+                    <div class="form-group">
+                        <label for="nome">Nome</label>
+                        <input type="text" class="form-control" asp-for="Nome">
+                        <span asp-validation-for="Nome" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" asp-for="Email">
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="pwd">Senha</label>
+                        <input type="password" class="form-control" asp-for="Senha">
+                        <span asp-validation-for="Senha" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="dataNascimento">Data Nascimento</label>
+                        <input type="date" class="form-control" asp-for="DataNascimento">
+                        <span asp-validation-for="DataNascimento" class="text-danger"></span>
+                    </div>
+                    <button type="submit" class="btn btn-block btn-success">Cadastrar</button>
+                    <button type="button" class="btn btn-block btn-primary" onclick="formLogin()">Login</button>
+                </form>
 
-
+            </div>
