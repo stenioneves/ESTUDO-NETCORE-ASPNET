@@ -76,13 +76,17 @@
 </html>
 <!--Lembre -se esse função alterada para o ECMASCRIPT 2015, está aqui devido o uso do C# -->
 <script>
+    /**
+     * Funçao alterada pois a propriedade href não está compativel os demias navegadores, exceto o EDGE, sendo usada a função assign.
+     * O problema só ocorre aqui
+       **/
     const CarregarNome = () => {
     const nome = '@HttpContextAccessor.HttpContext.Session.GetString("NomeUsuario")'
     const divNome = document.getElementById("NomeUsuarioAutenticado")
         if (nome != "") {
             divNome.innerHTML = `Olá  ${nome} <a href="../Usuario/Login/0">(Sair)</a>`
         } else {
-            window.location.href `../Usuario/Login`
+            window.location.assign("../Usuario/Login");
         }
 
 
