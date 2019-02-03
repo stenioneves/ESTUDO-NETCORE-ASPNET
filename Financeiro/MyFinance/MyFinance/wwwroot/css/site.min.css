@@ -1,1 +1,75 @@
 body{padding-top:50px;padding-bottom:20px}.body-content{padding-left:15px;padding-right:15px}.carousel-caption p{font-size:20px;line-height:1.4}.carousel-inner .item img[src$=".svg"]{width:100%}#qrCode{margin:15px}@media screen and (max-width:767px){.carousel-caption{display:none}}
+body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Wrapping element */
+/* Set some basic padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Carousel */
+.carousel-caption p {
+    font-size: 20px;
+    line-height: 1.4;
+}
+
+/* Make .svg files in the carousel display properly in older browsers */
+.carousel-inner .item img[src$=".svg"] {
+    width: 100%;
+}
+
+/* QR code generator */
+#qrCode {
+    margin: 15px;
+}
+
+/* Hide/rearrange for smaller screens */
+@media screen and (max-width: 767px) {
+    /* Hide captions */
+    .carousel-caption {
+        display: none;
+    }
+}
+  
+div #NomeUsuarioAutenticado{
+    color:wheat;
+    text-align:right;
+    padding-top:13px;
+    height:50px;
+
+}
+/*Remove a decoração da âncora na tela menu*/
+a:hover, a div figure figcaption{
+   text-decoration:none;
+   color:black;
+   
+}
+
+/*Customização da tela de login*/
+.login {
+    background-image:url('../images/bg.jpg');
+    background-repeat:no-repeat;
+}
+div #form {
+    background-color: rgba(239,239,239,0.95);
+    border-radius: 10px;
+    padding: 20px;
+    width: 300px;
+    
+}
+.espacamento{
+   padding-top:60px;
+}
+div #cadform {
+    background-color: rgba(239,239,239,0.95);
+    border-radius: 10px;
+    padding: 20px;
+    width: 500px;
+}
+div #logo{
+    text-align:center
+}
