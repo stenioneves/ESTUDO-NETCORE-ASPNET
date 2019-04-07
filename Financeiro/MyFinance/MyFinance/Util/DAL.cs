@@ -9,9 +9,9 @@ namespace MyFinance.Util
 {
     public class DAL
     {
-        private static string server = "localhost";
-        private static string database = "financeiro";
-        private static string user = "root";
+        private static string server = "server01.mysql.local";
+        private static string database = "base";
+        private static string user = "";
         private static string password = "";
         private static string connectionString = $"Server={server};Database={database};Uid={user};Pwd={password}; SslMode=none";
         private MySqlConnection connection;
@@ -41,5 +41,13 @@ namespace MyFinance.Util
             command.ExecuteNonQuery();
 
         }
+
+
+    public string Consulta(string sql){
+      MySqlCommand command = new MySqlCommand(sql,connection);
+      string retorno = Convert.ToString(command.ExecuteScalar());
+      return retorno;
     }
+    }
+
 }
