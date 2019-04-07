@@ -70,6 +70,39 @@ namespace MyFinance.Models
             DAL dal = new DAL();
             dal.ExecutarComandoSQL(sql);
         }
+         /*
+            
+           Toda vez que houve uma inclusão ou atualização da modalidade Transação o saldo da conta 
+           dever atualizado. 
+             Author: Stenio  Dom 24/03/2019 13:56
+          */
+        public void AtualizarSaldo(bool alter ){
+         DAL dAL= new DAL();
+
+         if(alter==false)
+          Saldo+=ConsultarSaldo();
+          else{
+              Saldo=ConsultarSaldo()-Saldo;
+          }
+
+
+         string sql =$"UPDATE conta SET saldo ='{Saldo}' where Idconta ='{Id}'";
+         
+         dAL.ExecutarComandoSQL(sql);
+
+        }
+
+
+        public double ConsultarSaldo(){
+          DAL dAL= new DAL();
+         string temp= dAL.Consulta($"select saldo from conta where IdConta='{Id}'");
+         Console.WriteLine("Aqui>>>"+temp);
+         double saldo= double.Parse(temp);
+           
+           return saldo;
+
+
+        }
 
     }
 }
