@@ -63,6 +63,7 @@
                     var totalReceitas = 0.0;
                     var totalDespesas = 0.0;
                     var vsaldo = 0.0;
+                    var saldo = ViewBag.ContaSaldo;
                     foreach (var item in (List<TransacaoModel>)ViewBag.ListarTransacao)
                     {
             <tbody>
@@ -96,4 +97,15 @@
 
    }
  </table>
-<h3><strong>Saldo:</strong>R$ @vsaldo</h3>
+@{
+   try{
+      if( TempData["alerta"].ToString() !=""){
+        <div class="alert alert-warning">
+           <strong>Atenção :</strong>@TempData["alerta"]
+        </div>
+      }
+   }catch{}
+
+}
+<h3 title="Despesas no período informado"><strong>Despesas:</strong>R$ @totalDespesas</h3>
+<h3 title="Saldo real! Calculados as depesas e receitas"> <strong>Saldo em conta R$</strong>@saldo</h3>
