@@ -31,9 +31,17 @@ namespace MyFinance.Controllers
         {
             formulario.HttpContextAccessor = HttpContextAccessor;
             ViewBag.ListarTransacao = formulario.ListarTransacao();
-            ViewBag.ListarContas = new ContaModel(HttpContextAccessor).ListarConta();
+            ContaModel conta = new ContaModel(HttpContextAccessor);//Alteração necessária para não repetir código.
+              if(formulario.IdConta !=0){
+                 conta.Id=formulario.IdConta;
+            ViewBag.ContaSaldo = conta.ConsultarSaldo();
+            
+            }else{
+                TempData["alerta"]="Você não aplicou o filtro,logo,os dados são de todas suas contas e transação!";
+            }
             return View();
         }
+
 
         [HttpGet]
         [HttpPost]
@@ -69,6 +77,23 @@ namespace MyFinance.Controllers
             {
                 formulario.HttpContextAccessor = HttpContextAccessor;
                 formulario.insert();
+                bool alter =false;
+                if(formulario.Id !=0)//se o formulario conter id,logo é uma correção, logo o saldo não pode ser calculado de forma simples.
+                     { alter=true;
+                      TransacaoModel tm = formulario.CarregarDados(formulario.Id);
+                        formulario.Valor =tm.Valor-formulario.Valor;
+
+
+                     }
+                // Verificação se a transação é uma despesa ou Receita
+                if(formulario.Tipo.ToString().Equals("D")){
+                
+                    new ContaController(HttpContextAccessor).AtualizarSaldo(formulario.IdConta,formulario.Valor*(-1), alter);//Regra basica matemática;)
+                }else{
+                    new ContaController(HttpContextAccessor).AtualizarSaldo(formulario.IdConta,formulario.Valor,alter);
+                }
+                TempData["info"]=" Saldo de conta Atualizado com essa Transação!";
+                 
                 return  RedirectToAction("index");
             }
             return View();
