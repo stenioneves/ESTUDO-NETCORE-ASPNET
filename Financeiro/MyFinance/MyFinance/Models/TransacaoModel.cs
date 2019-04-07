@@ -64,7 +64,7 @@ namespace MyFinance.Models
             string sql = "select t.idTransacao,t.data,t.tipo,t.valor,t.descricao as historico,t.Conta_idconta,c.nomeConta as conta,t.Plano_Contas_idPlano_Contas," +
                      " p.descricao as plano_conta from transacao AS t"+
                      $" INNER JOIN conta c ON t.Conta_idconta = c.idconta INNER JOIN plano_contas as p ON t.Plano_Contas_idPlano_Contas = p.idPlano_Contas Where t.usuario_id = {IdUsuarioLogado()}" +
-                    $"{filtro} ORDER BY t.data desc limit 10"; 
+                    $"{filtro} ORDER BY t.data desc limit 30"; 
             DAL dal = new DAL();
             DataTable dt = dal.RetDataTable(sql);
             for (int i = 0; i <dt.Rows.Count ; i++)
@@ -140,6 +140,8 @@ namespace MyFinance.Models
 
         public void Excluir(int id)
         {
+           
+
             new DAL().ExecutarComandoSQL($"DELETE FROM transacao WHERE idTransacao ={id} ");
 
         }
