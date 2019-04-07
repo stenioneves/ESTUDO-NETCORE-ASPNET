@@ -16,7 +16,7 @@ namespace MyFinance.Controllers
         {
             HttpContextAccessor = httpContextAccessor;
         }
-
+        
         public IActionResult Index()
 
         {
@@ -49,6 +49,15 @@ namespace MyFinance.Controllers
             ContaModel conta = new ContaModel(HttpContextAccessor);
             conta.Excluir(id);
             return RedirectToAction("Index");
+        }
+         /*Atualiza o saldo, mas verificar se é uma nova inserção ou alteração */
+        public void AtualizarSaldo(int idconta,double valor, bool alter){
+            ContaModel conta =new ContaModel(HttpContextAccessor);
+            conta.Saldo= valor;// Nesse caso o saldo é o valor da transação para abater no saldo ou somar.
+            conta.Id= idconta;
+
+            conta.AtualizarSaldo(alter);
+            Console.WriteLine($"alter-->>>{alter}");
         }
     }
 }
