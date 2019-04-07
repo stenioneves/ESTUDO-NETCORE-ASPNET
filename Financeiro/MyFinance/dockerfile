@@ -1,4 +1,5 @@
 FROM microsoft/aspnetcore:2.0
+LABEL maintainer 'Stenio Neves<stenioneves@outlook.com'
 WORKDIR /app
 COPY ./MyFinance/publish/  .
 ENTRYPOINT [ "dotnet","MyFinance.dll" ]
