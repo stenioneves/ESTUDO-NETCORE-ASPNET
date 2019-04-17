@@ -32,6 +32,7 @@ namespace MyFinance.Controllers
             formulario.HttpContextAccessor = HttpContextAccessor;
             ViewBag.ListarTransacao = formulario.ListarTransacao();
             ContaModel conta = new ContaModel(HttpContextAccessor);//Alteração necessária para não repetir código.
+            ViewBag.ListarContas= conta.ListarConta();
               if(formulario.IdConta !=0){
                  conta.Id=formulario.IdConta;
             ViewBag.ContaSaldo = conta.ConsultarSaldo();
