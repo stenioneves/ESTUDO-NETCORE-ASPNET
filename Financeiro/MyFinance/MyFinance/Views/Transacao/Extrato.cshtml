@@ -49,6 +49,7 @@
     <thead>
         <tr>
             <th>#</th>
+            <th>Detalhes</th>
             <th>ID</th>
             <th>Tipo</th>
             <th>Historico</th>
@@ -67,19 +68,20 @@
                     foreach (var item in (List<TransacaoModel>)ViewBag.ListarTransacao)
                     {
             <tbody>
-                <tr>
-                    <td><button class="btn btn-warning" onclick="EditarTransacao(@item.Id.ToString())">Editar</button></td>
-                    <td>@item.Id.ToString()</td>
-                    <td>@item.Tipo.ToString().Replace("D", "Despesa").Replace("R", "Receita")</td>
-                    <td>@item.Descricao.ToString()</td>
-                    <td>@item.Valor.ToString()</td>
-                    <td>@item.Data.ToString()</td>
-                    <td>@item.Nomeconta.ToString()</td>
-                    <td>@item.DescricaoPlanoConta.ToString()</td>
+                    <tr>
+                        <td><button class="btn btn-warning" onclick="EditarTransacao(@item.Id.ToString())">Editar</button></td>
+                        <td><button class="btn btn-primary" onclick="EditarTransacao(@item.Id.ToString())"><span class="glyphicon glyphicon-eye-open"></span>&nbsp; Visualizar</button></td>
+                        <td>@item.Id.ToString()</td>
+                        <td>@item.Tipo.ToString().Replace("D", "Despesa").Replace("R", "Receita")</td>
+                        <td>@item.Descricao.ToString()</td>
+                        <td>@item.Valor.ToString()</td>
+                        <td>@item.Data.ToString()</td>
+                        <td>@item.Nomeconta.ToString()</td>
+                        <td>@item.DescricaoPlanoConta.ToString()</td>
 
 
 
-                </tr>
+                    </tr>
                 @{ 
                     if (item.Tipo == "D")
                     {

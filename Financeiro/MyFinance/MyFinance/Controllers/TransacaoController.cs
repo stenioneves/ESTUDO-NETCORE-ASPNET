@@ -119,5 +119,12 @@ namespace MyFinance.Controllers
         }
 
 
+        public IActionResult Lancamento(int id){
+        
+         ViewBag.Transacao= new TransacaoModel().CarregarDados(id);
+
+
+         }
+
     }
 }
