@@ -20,5 +20,16 @@ namespace MyFinance.Models
 
         private string Data { get; set; }
 
+        private string classificacao { get; set; }
+
+
+        //Atributo somente para relacionament com a transação.
+        private int IdTransacao { get; set; }
+       
+        //localização para uso Online e o bot
+         long lon { get; set; } //Longetude
+         long lat { get; set; } //Latitude
+
+
     }
 }
