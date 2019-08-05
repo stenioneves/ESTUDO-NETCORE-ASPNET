@@ -1,0 +1,43 @@
+﻿
+@{
+    ViewData["Title"] = "Novo Lancamento";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<h2>NovoLancamento</h2>
+
+<form>
+    <div class="form-row">
+        <div class="form-group col-md-12"
+        <div class="form-group col-md-6">
+            <label for="nome">Nome</label>
+            <input type="text" class="form-control" id="nome" placeholder="Nome do item">
+        </div>
+        <div class="form-group col-md-2">
+            <label for="valor">valor</label>
+            <input type="text" class="form-control" id="valor" placeholder="Digite o valor do item">
+        </div>
+    
+    <div class="form-group col-md-4">
+        <label for="data">Data</label>
+        <input type="date" class="form-control" id="data" placeholder="Informe a data">
+    </div>
+      <datalist id="classifica">
+          <option value="Red"></option>
+          <option value="Greend"></option>
+      </datalist>
+   
+        <div class="form-group col-md-4">
+            <label for="classifica">Classificação</label>
+            <input list="classifica"  class="form-control"/>
+        </div>
+        <div class="form-group col-md-6">
+            <button class="btn btn-success form-control">Localização do GPS<i class="material-icons">add_location</i></button>
+        </div>
+   
+        <div class="form-group col-md-3">
+            <button type="submit" class="btn btn-primary">Gravar</button>
+        </div>
+        </div>
+    </div>
+</form>
