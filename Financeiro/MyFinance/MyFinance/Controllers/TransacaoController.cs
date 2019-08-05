@@ -123,6 +123,7 @@ namespace MyFinance.Controllers
         
          ViewBag.Transacao= new TransacaoModel().CarregarDados(id);
 
+            return View();
 
          }
 
