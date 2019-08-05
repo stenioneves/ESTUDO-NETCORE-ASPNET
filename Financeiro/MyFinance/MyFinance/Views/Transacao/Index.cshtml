@@ -1,11 +1,25 @@
 ﻿
 @{
     ViewData["Title"] = "Index";
+
+    try
+    {
+        if (TempData["info"].ToString() != "")
+        {
+            <div class="alert alert-success">
+                <strong>Atenção</strong>@TempData["info"]
+            </div>
+        }
+    }
+    catch { }
+
 }
+
+
 
 <h2>Minhas Transações</h2>
 
-<table class="table table-bordered table-hover" >
+<table class="table table-bordered table-hover">
     <thead>
         <tr>
             <th>#</th>
@@ -17,10 +31,10 @@
             <th>Data</th>
             <th>Conta</th>
             <th>Plano de Contas</th>
-          </tr>
+        </tr>
 
     </thead>
-    @{ 
+    @{
         foreach (var item in (List<TransacaoModel>)ViewBag.ListarTransacao)
         {
             <tbody>
@@ -44,7 +58,7 @@
 
         }
 
-        
+
 
 
     }
