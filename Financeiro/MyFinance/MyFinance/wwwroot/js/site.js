@@ -44,7 +44,9 @@ const EditarTransacao = (id) => {
 }
 const ExcluirTransacao = (id) => {
     const conf = confirm("Tem certeza que deseja excluir esse essa Transação");
+    if(conf){
     window.location.href = `../Transacao/ExcluirTransacao/${id}`
+    }
 }
 const formCad = (id) => {
 
